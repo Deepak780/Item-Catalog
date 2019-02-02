@@ -5,9 +5,11 @@ In this project, we will develop an application that provides a list of items wi
 A user need not logged in, in order to read the categories pr items. However, users who are created an item or category will be able to update the data.
 It also uses a user authentication like third party auth Google or Facebook.
 
+[Top](#top)
 ### What you will learn?
 You will learn how to develop a RESTful web application using the Python framework Flask along with implementing third-party OAuth authentication. You will then learn when to properly use the various HTTP methods available to you and how these methods relate to CRUD (create, read, update and delete) operations.
 
+[Top](#top)
 ### Technologies required
 * Python
 * HTML
@@ -19,11 +21,13 @@ You will learn how to develop a RESTful web application using the Python framewo
 * OAuth
 * Facebook / Google Login
 
+[Top](#top)
 ### Softwares needed
 * Python
 * Vagrant
 * VirtualBox
 
+[Top](#top)
 ### How to run this project
 * Download and install Vagrant and VirtualBox.
 * Clone the vagrant file from the Udacity repo.
@@ -55,6 +59,7 @@ python sample_data.py
 python item_catalog.py
 ```
 
+[Top](#top)
 ### Google Login Credentials
 To get the Google login credentials follow these steps:
 
@@ -72,6 +77,8 @@ To get the Google login credentials follow these steps:
 12. Rename JSON file to client_secrets.json.
 13. Place JSON file in item-catalog directory that you cloned from here.
 
+[Top](#top)
 ### Output
+
 [Top](#top)
 FAQ's [here]()
