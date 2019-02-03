@@ -1,0 +1,64 @@
+{% extends "boot_base.html" %}
+{% include "nav.html" %}
+{% block content %}
+
+<body>
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+
+    <ul>
+    {% for message in messages %}
+      <li>
+        <strong>{{ message }}</strong>
+      </li>
+    {% endfor %}
+    </ul>
+    
+  {% endif %}
+{% endwith %}
+
+<div class="container">
+  
+  <h2>Edit Gadget Item</h2>
+  
+  <form class="form-horizontal" action="{{url_for('editGadgetItem', gadget_id=gadget_id,item_id=item_id)}}" method='post'>
+    
+    <div class="form-group">
+
+      <div class="col-sm-5">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+      </div>
+  	</div>
+  	<div class="form-group">
+
+      <div class="col-sm-5">
+        <label for="desc">Description:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter description" name="description">
+      </div>
+  	</div>
+
+	<div class="form-group">
+      <div class="col-sm-5">
+        <label for="name">Price:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter Price" name="price">
+      </div>
+  	</div>     
+
+	<div class="form-group">        
+
+      	<div class="col-sm-offset-1 col-sm-1">
+        	<button type="submit" class="btn btn-info">Edit</button>
+    	</div>
+    	
+    	<div class="col-sm-offset-1 col-sm-4">
+        	<a href="{{url_for('showGadgetItems', gadget_id=gadget_id)}}"><button type="button" class="btn btn-danger">Cancel</button></a>
+        </div>
+
+    </div>
+
+  </form>
+</div>
+</body>
+{% endblock %}

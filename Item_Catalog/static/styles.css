@@ -1,0 +1,48 @@
+body{
+    background-color: #D6DBDF;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+h1,h2 {
+	color: #21618C;
+
+}
+#navbar-text{
+    color: #FFFFFF;
+
+}
+#name{
+    color: #7C31B7;
+}
+.navbar-profile-image{
+    height: 40px;
+    padding-bottom: 0px;
+}
+
+.container{
+    background-color: #FFFFFF;
+}
+.itemname{
+    color: #FF5733;
+}
+.googlesignin{
+    align-items: center;
+}
+.title{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: #7C31B7;
+}
+.blok1{position:absolute;  border: 2px solid; opacity: 0.8;
+    filter: alpha(opacity=60);
+    border-radius: 25px; height: 650px; padding: 50px; padding-top: 5px; margin-left: 55px; border-color: #000000; background-color: #F8F9F9; }
+
+.blok2{position:absolute;  border: 2px solid; opacity: 0.8;
+    filter: alpha(opacity=60);
+    border-radius: 25px; height: 650px; width: 875px; padding: 150px; padding-top: 5px; margin-left: 605px; border-color: #000000; background-color: #F8F9F9; }
+
+.navbar-default {
+    background-color: #4B4A4C;
+    border-color: #E7E7E7;
+}

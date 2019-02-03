@@ -1,0 +1,127 @@
+
+
+
+check - view log create
+instance name - linux_server_31_01_2019
+
+create a new folder
+add the file with extension as pem
+
+
+Public DNS (IPv4)
+ec2-54-149-187-24.us-west-2.compute.amazonaws.com
+
+IPv4 Public IP
+54.149.187.24
+
+open gitbash from the folder
+ and then type the command
+ssh -i linux_server_31_01_2019.pem ubuntu@54.149.187.24
+
+then type yes
+
+then it will connect to the ubuntu user
+
+default port number is 22.
+we don't consider this and deny it and change as follows:
+
+update and upgrade using
+#sudo apt-get update
+#sudo apt-get upgrade
+
+change the ssh port from 22 to 2200:
+
+1. edit the /etc/ssh/sshd_config file: sudo vi /etc/ssh/sshd_config
+2. change the port number on line 5 from 2 to 22
+3. save and exit
+4. restart ssh: #sudo service ssh restart.
+
+in descriptiion section
+go to seurity wizard
+go to inbound rules
+and edit
+and add port 2200, 123, 80
+save
+then go to ec2 dashboard
+
+to login with the new port 2200 use the following command:
+ssh -i linux_server_31_01_2019.pem -p 2200 ubuntu@54.149.187.24
+
+
+to check the ports are active or not
+#sudo ufw status
+
+update the status
+
+#sudo ufw default deny incoming
+#sudo ufw default allow outgoing
+#sudo ufw allow 2200/tcp
+#sudo ufw allow www
+#sudo ufw allow 123/udp
+#sudo ufw deny 22 - deny the port 22
+
+#sudo ufw enable
+sudo ufw status
+
+create a new user account named grader
+ #sudo adduser grader
+add name,no and yes
+
+edit the grader permission to sudo
+#sudo ers: sudo visudo
+
+add line below root as
+grader ALL=(ALL:ALL) ALL
+
+ctrl-x 
+enter y
+then press enter
+
+verify the grader has sudo permission sudo
+run as grader user
+#mkdir /home/grader/.sshsu - grader
+enter password
+
+then it will run as grader
+
+add permissions
+
+copy data from ubuntu user to grader
+ssh keypair for grader
+configure keybased autthentication for grader
+
+create a directory:
+mkdir /home/grader/.ssh
+then #ll
+
+#su grader
+
+copying data(keys) from ubuntu to grader user
+# sudo cp /home/ubuntu/.ssh/authorized_keys /home/grader/.ssh/authorized_keys
+
+change ownership:
+#chown grader.grader /home/grader/.ssh
+
+add grader to sudo group:
+#sudo su -it wii go to root
+#usermod -aG sudo grader
+
+change permission to .ssh folder
+
+#chmod 700 /home/grader/.ssh
+
+permission to authorized keys:
+
+#chmod 644 /home/grader/.ssh/authorized_keys
+
+vi /etc/ssh/sshd_config
+
+edit the line (remove prohibited pwd and add no)
+
+restart:
+#sudo service ssh restart
+exit
+exit
+exit
+
+#ssh -i linux_server_31_01_2019.pem -p 2200 grader@54.149.187.24

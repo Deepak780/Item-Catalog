@@ -1,0 +1,49 @@
+{% extends "boot_base.html" %}
+{% include "nav.html" %}
+
+{% block content %}
+
+<body>
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+
+    <ul>
+    {% for message in messages %}
+      <li>
+        <strong>{{ message }}</strong>
+      </li>
+    {% endfor %}
+    </ul>
+    
+  {% endif %}
+{% endwith %}
+
+<div class="container">
+  
+  <h2>Delete Gadget</h2>
+  <h3>Are you sure you want to delete the category {{deleteGadget.name}}?</h3><br>
+  
+  <form class="form-horizontal" action="{{url_for('deleteGadgets',gadget_id=deleteGadget.id)}}" method='post'>
+
+    <div class="form-group">        
+
+      <div class="col-sm-offset-1 col-sm-1">
+        <button type="submit" class="btn btn-info">Delete</button>
+    
+
+      </div>
+      <div class="col-sm-offset-1 col-sm-4">
+        <a href="{{url_for('showGadgets')}}"><button type="button" class="btn btn-danger">Cancel</button></a>
+
+      </div>
+
+    </div>
+    <!--/form-group-->
+
+  </form>
+</div>
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "boot_base.html" %}
+{% include "nav.html" %}
+{% block content %}
+
+<div>
+	
+	
+
+	<div class="col-md-4 blok1">
+	
+		<div class="row">
+		    <div class="col-md-12">
+		      <h2>
+		        <a href="#" class="title">Gadgets</a>
+			        <div class="pull-right">
+			          <a href = "{{url_for('createGadgets')}}">
+			            <button class="btn btn-success primary">
+			              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+			              Add Gadget
+			            </button>
+			          </a>
+			        </div>
+		      </h2>
+		    </div>
+		</div>
+		
+		{% for gadget in gadgets %}
+
+		<a href="{{url_for('showGadgetItems', gadget_id=gadget.id)}}"><h3>{{gadget.name}}</h3></a>
+		<a href="{{url_for('editGadgets', gadget_id=gadget.id)}}">Edit</a>
+		<a href="{{url_for('deleteGadgets', gadget_id=gadget.id)}}">Delete</a>
+		<br>
+
+		{% endfor %}
+	</div>
+
+	<div class="col-md-6 blok2">
+		<h2 class="title">Latest Items</h2>
+		{% for item in items %}
+
+		<h3 class="itemname">{{item.name}}</h3>
+		
+		<h4><i>Description:</i></h4>
+		<p>{{item.description}}</p>
+
+		<h4><i>Price:</i></h4>
+		<p>{{item.price}}</p>
+
+		{% endfor %}
+	</div>
+
+</div>
+{% endblock %}
+

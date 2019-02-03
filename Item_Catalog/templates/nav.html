@@ -1,0 +1,47 @@
+
+	<div>
+
+
+		<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{url_for('showGadgets')}}" id="navbar-text">Home</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+        
+        
+        <!--
+        <li><a href="#" id="navbar-text">Add Item</a></li>
+        -->
+        
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+
+
+        {%if 'username' not in session %}
+          <li><a href="{{url_for('showLogin')}}" id="navbar-text">Login</a></li>
+        {% else %}
+          {% if session.user_id %}
+          <li><a href="{{url_for('createGadgets')}}" id="navbar-text">Add Category</a></li>
+          <img src="{{ session['picture']}}" alt="profile image" class="navbar-profile-image image-responsive pull-left" id="prof-img">
+          <li><a href="{{url_for('gdisconnect')}}" id="navbar-text">Logout: {{ session['email']}} </a></li>
+          {% endif %}
+        {% endif %} 
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+</div>
